@@ -18,9 +18,9 @@ blockage).
 
 ## Known blockage
 
-`NO_CHALLENGES` on a non-verified device. Bypass: cross-device QR login
-(ubereats.com -> "Connectez-vous avec le QR code", scanned with the Uber
-app).
+`NO_CHALLENGES` on a non-verified device. Bypass: cross-device QR login on
+ubereats.com (the "log in with the QR code" option), scanned with the Uber
+app.
 
 - Condition: the phone must egress through the same IP as the browser
   (Tailscale exit node on the VPS).

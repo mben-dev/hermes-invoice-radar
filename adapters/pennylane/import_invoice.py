@@ -18,7 +18,7 @@ import urllib.request
 from pathlib import Path
 
 BASE = "https://app.pennylane.com/api/external/v2"
-INBOX = Path(os.path.expanduser("~/justificatifs"))  # per-provider subfolders
+INBOX = Path(os.environ.get("INVOICE_INBOX", os.path.expanduser("~/receipts")))  # per-provider subfolders
 
 def api_key():
     for line in open(os.path.expanduser("~/.hermes/.env")):

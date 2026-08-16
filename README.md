@@ -16,8 +16,8 @@ For every transaction without a supporting document, try in this order:
 2. **Email** - search the receipt in Gmail (90% of cases).
 3. **Browser** - log in and download (Gandi, Uber, ...).
 
-The platform fiches in `sources/` describe the method that actually works for
-each platform. The method is a platform constraint, not a choice: the fiche
+The platform files in `sources/` describe the method that actually works for
+each platform. The method is a platform constraint, not a choice: the file
 states the constraint, where the PDF ends up, and the pitfalls.
 
 ## Structure
@@ -26,7 +26,7 @@ states the constraint, where the PDF ends up, and the pitfalls.
 hermes-invoice-radar/
   README.md            why, method, decision tree, contribution
   SECRETS.md           2FA/TOTP handling (no real secret)
-  sources/             ONE FICHE PER PLATFORM (the method, not the content)
+  sources/             ONE FILE PER PLATFORM (the method, not the content)
   adapters/            the output = the accounting software (pluggable)
   emails/senders.md    sender -> subject -> format lookup table
   scripts/             reusable pipelines (email to PDF, ...)
@@ -37,7 +37,7 @@ hermes-invoice-radar/
 
 To add a platform:
 
-1. Create `sources/<platform>.md` following the existing fiches (method,
+1. Create `sources/<platform>.md` following the existing files (method,
    destination, pitfalls).
 2. Follow the decision tree: API first, email second, browser last.
 3. Anonymize everything: no real amounts, no personal emails, no secrets.

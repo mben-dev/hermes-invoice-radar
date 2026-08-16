@@ -2,9 +2,9 @@
 """gmail_to_pdf.py - collect invoice PDFs from Gmail.
 
 For each platform: search Gmail for the invoice emails, download the attached
-PDFs into ~/justificatifs/<folder>/, and report what was found. Emails
-without a PDF attachment (HTML receipts with tracking links) are converted
-to PDF via Playwright.
+PDFs into the inbox folder (~/receipts/<folder>/ by default, override with
+INVOICE_INBOX), and report what was found. Emails without a PDF attachment
+(HTML receipts with tracking links) are converted to PDF via Playwright.
 
 Usage: python3 gmail_to_pdf.py [--provider hetzner]
        (no argument = run the full provider list)
@@ -25,7 +25,7 @@ TOKEN_PATHS = [
     os.path.expanduser("~/.hermes/google_token.json"),
     os.path.expanduser("~/.hermes/google_token_mbendev.json"),
 ]
-OUT_ROOT = Path(os.path.expanduser("~/justificatifs"))
+OUT_ROOT = Path(os.environ.get("INVOICE_INBOX", os.path.expanduser("~/receipts")))
 OUT_ROOT.mkdir(parents=True, exist_ok=True)
 
 # Provider -> (Gmail query, output folder). Extend as platforms are added.
